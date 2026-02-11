@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Note } from '../models/note';
-import { NoteService } from '../services/note.services';
 
 @Component({
   selector: 'app-note-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './note.details.component.html',
   styleUrl: './note.details.component.css',
 })
