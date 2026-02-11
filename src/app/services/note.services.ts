@@ -8,9 +8,13 @@ import { Note } from '../models/note';
 
 export class NoteService {
   private http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:8080/notes/';
+  private readonly apiUrl = 'http://localhost:8080/';
 
   public getNotes() {
-    return this.http.get<Note[]>(this.apiUrl);
+    return this.http.get<Note[]>(`${this.apiUrl}notes/`);
+  }
+
+  public getNote(id: number) {
+    return this.http.get<Note>(`${this.apiUrl}notes/${id}`);
   }
 }
