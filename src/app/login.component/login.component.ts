@@ -24,9 +24,9 @@ export class LoginComponent {
     this.auth.login(this.model)
     .subscribe({
       next: (response) => {
-        let token = response.token;
-        console.info("token", token);
-        localStorage.setItem("token", token);
+        localStorage.setItem('username', response.username);
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('roles', JSON.stringify(response.roles));
         this.router.navigate(['/notes']);
       },
       error: (err) => {
