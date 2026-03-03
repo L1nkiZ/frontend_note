@@ -17,8 +17,8 @@ export class NoteListComponent {
 
   ngOnInit() {
     this.noteService.getNotes().subscribe({
-      next: (notes) => this.notes.set(notes),
-      error: (err) => console.error('Error fetching notes:', err)
+      next: (notes: Note[]) => this.notes.set(notes),
+      error: (err: any) => console.error('Error fetching notes:', err)
     });
   }
 }
