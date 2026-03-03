@@ -32,11 +32,11 @@ describe('NoteListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get notes from service', () => {
+  it('Dois afficher les notes récupérées du serviceO', () => {
     // Arrange
     const mockedNotes = [
-      { id: 1, title: 'title1', content: 'content1' },
-      { id: 2, title: 'title2', content: 'content2' },
+      { id: 1, title: 'titre 1', content: 'contenu 1' },
+      { id: 2, title: 'titre 2', content: 'contenu 2' },
     ] as Note[];
 
     // Act
@@ -49,5 +49,32 @@ describe('NoteListComponent', () => {
     // Assert
     expect(component).toBeTruthy();
     expect(component.notes().length).toBe(2);
+  });
+
+  it('Dois supprimer une note quand delete() est appelé', async () => {
+    // Arrange: same mocked notes
+    const mockedNotes = [
+      { id: 1, title: 'titre 1', content: 'contenu 1' },
+      { id: 2, title: 'titre 2', content: 'contenu 2' },
+    ] as Note[];
+
+    // trigger initial GET
+    fixture.detectChanges();
+    const getReq = httpMock.expectOne(() => true);
+    getReq.flush(mockedNotes);
+
+    await fixture.whenStable();
+    expect(component.notes().length).toBe(2);
+
+    // Act: delete first note
+    component.delete(mockedNotes[0]);
+    const delReq = httpMock.expectOne((r) => r.method === 'DELETE' && r.url.includes('/notes/1'));
+    expect(delReq.request.method).toBe('DELETE');
+    delReq.flush({});
+
+    await fixture.whenStable();
+
+    // Assert: notes length decreased
+    expect(component.notes().length).toBe(1);
   });
 });

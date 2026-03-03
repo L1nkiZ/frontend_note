@@ -21,4 +21,14 @@ export class NoteListComponent {
       error: (err: any) => console.error('Error fetching notes:', err)
     });
   }
+
+  delete(note: Note) {
+    this.noteService.deleteNote(note.id).subscribe({
+      next: () => {
+        const updated = this.notes().filter(n => n.id !== note.id);
+        this.notes.set(updated);
+      },
+      error: (err: any) => console.error('Erreur lors de la suppression de la note:', err)
+    });
+  }
 }

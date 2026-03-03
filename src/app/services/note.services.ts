@@ -17,4 +17,8 @@ export class NoteService {
   public getNote(id: number) {
     return this.http.get<Note>(`${this.apiUrl}notes/${id}`);
   }
+
+  public deleteNote(id: number) {
+    return this.http.delete<void>(`${this.apiUrl}notes/${id}`);
+  }
 }
