@@ -14,4 +14,14 @@ export class AuthService {
     public login(request:LoginRequest):Observable<LoginResponse> {
         return this.http.post<LoginResponse>(`${this.apiUrl}/login`, request);
     }
+
+    public logout(): void {
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('roles');
+    }
+
+    public isLoggedIn(): boolean {
+        return !!localStorage.getItem('token');
+    }
 }
