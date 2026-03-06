@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { Observable, EMPTY } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Note } from '../models/note';
-import { NoteService } from '../services/note.services';
+import { Note } from '@/models/note';
+import { NoteService } from '@/services/note.services';
 
 @Injectable({
   providedIn: 'root'

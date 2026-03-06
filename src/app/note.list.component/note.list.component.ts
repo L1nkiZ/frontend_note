@@ -1,8 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import { Note } from '../models/note';
-import { NoteComponent } from '../note.component/note.component';
-import { NoteService } from '../services/note.services';
+import { Note } from '@/models/note';
+import { NoteComponent } from '@/note.component/note.component';
+import { NoteService } from '@/services/note.services';
 
 @Component({
   selector: 'app-note-list',

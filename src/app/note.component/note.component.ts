@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Note } from '../models/note';
+import { Note } from '@/models/note';
 
 @Component({
   selector: 'app-note',

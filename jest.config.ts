@@ -5,6 +5,10 @@ module.exports = {
   ...createCjsPreset(),
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/app/$1',
+    '^@$': '<rootDir>/src/app'
+  },
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/dist/',

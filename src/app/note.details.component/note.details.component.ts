@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Note } from '../models/note';
+import { Note } from '@/models/note';
 
 @Component({
   selector: 'app-note-details',

@@ -4,7 +4,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { NoteListComponent } from './note.list.component';
-import { Note } from '../models/note';
+import { Note } from '@/models/note';
 
 describe('NoteListComponent', () => {
   let component: NoteListComponent;

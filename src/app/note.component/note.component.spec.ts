@@ -38,7 +38,7 @@
 
 import { provideRouter } from '@angular/router';
 import { NoteComponent } from './note.component';
-import { Note } from '../models/note';
+import { Note } from '@/models/note';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 
 describe('Note', () => {
