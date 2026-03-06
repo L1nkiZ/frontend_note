@@ -7,7 +7,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src/app')
     }
   },
+  // serve index.html from src/ and static files from project-level public/
+  root: 'src',
+  publicDir: '../public',
   server: {
-    port: 5173
+    port: 4200
   }
 });
