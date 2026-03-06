@@ -19,6 +19,7 @@ export class NoteService {
   }
 
   public deleteNote(id: number) {
-    return this.http.delete<void>(`${this.apiUrl}notes/${id}`);
+    // backend returns a plain text message; request as text to avoid JSON parsing errors
+    return this.http.delete(`${this.apiUrl}notes/remove/${id}`, { responseType: 'text' });
   }
 }
