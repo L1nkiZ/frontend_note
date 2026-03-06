@@ -7,5 +7,7 @@ describe('test connection', () => {
     cy.get('input[name="password"]').type('password{enter}');
 
     cy.url().should('include', '/notes');
+
+    cy.get('.logout').click();
   });
 });
